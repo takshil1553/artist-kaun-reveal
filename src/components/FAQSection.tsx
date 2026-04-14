@@ -1,9 +1,5 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState } from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const influencerFaqs = [
   { q: "Is there a red carpet experience?", a: "Yes. Influencers will have access to an exclusive red carpet entry with a professional photoshoot setup." },
@@ -26,46 +22,50 @@ const musicLoverFaqs = [
 ];
 
 const FAQSection = () => {
+  const [tab, setTab] = useState<"influencer" | "music">("influencer");
+  const faqs = tab === "influencer" ? influencerFaqs : musicLoverFaqs;
+
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-2xl mx-auto space-y-16">
-        <h2 className="font-heading text-5xl md:text-6xl text-center text-foreground">
-          FAQs for <span className="text-primary">Invitees</span>
-        </h2>
-
-        {/* Influencers */}
-        <div>
-          <h3 className="font-heading text-3xl text-primary text-spaced mb-6">For Influencers</h3>
-          <Accordion type="single" collapsible className="space-y-2">
-            {influencerFaqs.map((faq, i) => (
-              <AccordionItem key={i} value={`inf-${i}`} className="border-border">
-                <AccordionTrigger className="text-foreground font-body text-sm hover:text-primary text-left">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-body text-sm">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+    <section className="py-24 px-6 border-t border-white/10">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-white/40 text-xs text-spaced uppercase mb-3">Questions</p>
+          <h2 className="font-heading text-5xl md:text-7xl text-white">
+            FAQ<span className="text-primary">s</span>
+          </h2>
         </div>
 
-        {/* Music Lovers */}
-        <div>
-          <h3 className="font-heading text-3xl text-primary text-spaced mb-6">For Music Lovers</h3>
-          <Accordion type="single" collapsible className="space-y-2">
-            {musicLoverFaqs.map((faq, i) => (
-              <AccordionItem key={i} value={`ml-${i}`} className="border-border">
-                <AccordionTrigger className="text-foreground font-body text-sm hover:text-primary text-left">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-body text-sm">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="flex border border-white/10 rounded-sm overflow-hidden mb-10">
+          <button
+            onClick={() => setTab("influencer")}
+            className={`flex-1 py-3 font-heading text-sm text-spaced uppercase transition-all duration-300 ${
+              tab === "influencer" ? "bg-primary text-primary-foreground" : "text-white/50 hover:text-white"
+            }`}
+          >
+            🎥 Influencer
+          </button>
+          <button
+            onClick={() => setTab("music")}
+            className={`flex-1 py-3 font-heading text-sm text-spaced uppercase transition-all duration-300 ${
+              tab === "music" ? "bg-primary text-primary-foreground" : "text-white/50 hover:text-white"
+            }`}
+          >
+            🎶 Music Lover
+          </button>
         </div>
+
+        <Accordion type="single" collapsible className="space-y-2">
+          {faqs.map((faq, i) => (
+            <AccordionItem key={i} value={`faq-${i}`} className="border-white/10">
+              <AccordionTrigger className="text-white font-body text-sm hover:text-primary text-left py-4">
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-white/50 font-body text-sm leading-relaxed pb-4">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );

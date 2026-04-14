@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="bg-background min-h-screen">
+    <main className="bg-black min-h-screen">
       <HeroSection />
       <EventDetails />
       <Footer />
