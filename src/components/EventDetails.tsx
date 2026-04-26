@@ -73,7 +73,7 @@ const TeaserPlayer = () => {
           <button onClick={handlePlay} className="absolute inset-0 flex items-center justify-center">
             <div
               className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-primary flex items-center justify-center"
-              style={{ boxShadow: "0 0 50px hsl(40 80% 55% / 0.5)" }}
+              style={{ boxShadow: "0 0 50px rgba(255,69,0,0.5)" }}
             >
               <Play className="w-9 h-9 md:w-11 md:h-11 text-primary fill-primary ml-1" />
             </div>
@@ -108,6 +108,29 @@ const EventDetails = () => {
         {/* Teaser Player */}
         <TeaserPlayer />
 
+      <div className="w-full">
+          <a
+            href="/invite"
+            className="group relative inline-flex items-center justify-center w-full py-5 overflow-hidden rounded-sm"
+            style={{ background: "linear-gradient(135deg, #ff4500, #cc3300)", boxShadow: "0 0 40px rgba(255,69,0,0.35)" }}
+          >
+            {/* Shimmer sweep */}
+            <span
+              className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"
+              style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)" }}
+            />
+
+            {/* Scale on hover */}
+            <span className="relative flex items-center gap-3 font-heading text-xl md:text-2xl tracking-[0.3em] uppercase text-white group-hover:scale-105 transition-transform duration-300">
+              Get Exclusive Invite
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </a>
+          <p className="text-white/25 text-[9px] tracking-[0.4em] uppercase font-body text-center mt-3">Limited Spots Available</p>
+        </div>
+
         {/* Date & Venue */}
         <div className="space-y-6">
           <p className="text-white/50 text-[10px] tracking-[0.5em] uppercase font-body">
@@ -115,7 +138,7 @@ const EventDetails = () => {
           </p>
           <h2
             className="font-heading text-7xl md:text-9xl text-primary leading-none"
-            style={{ textShadow: "0 0 60px hsl(40 80% 55% / 0.3)" }}
+            style={{ textShadow: "0 0 60px rgba(255,69,0,0.3)" }}
           >
             13.06.26
           </h2>
@@ -169,32 +192,6 @@ const EventDetails = () => {
           >
             <Instagram className="w-4 h-4" />
             <span className="text-xs tracking-[0.3em] uppercase font-body">@artist.kaun</span>
-          </a>
-        </div>
-
-        {/* CTA */}
-        <div className="w-full">
-          <a
-            href="/invite"
-            className="group relative flex items-center justify-center w-full py-6 overflow-hidden"
-          >
-            {/* Animated border */}
-            <span className="absolute inset-0 border border-primary/30 group-hover:border-primary/80 transition-colors duration-500" />
-            {/* Left line */}
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0 group-hover:w-12 h-px bg-primary transition-all duration-500" />
-            {/* Right line */}
-            <span className="absolute right-0 top-1/2 -translate-y-1/2 w-0 group-hover:w-12 h-px bg-primary transition-all duration-500" />
-            {/* Corner accents */}
-            <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-primary" />
-            <span className="absolute top-0 right-0 w-3 h-3 border-t border-r border-primary" />
-            <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary" />
-            <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary" />
-            {/* Glow on hover */}
-            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20" />
-            {/* Text */}
-            <span className="relative font-heading text-xl md:text-2xl tracking-[0.4em] uppercase text-white group-hover:text-primary transition-colors duration-300">
-              Get Exclusive Invite
-            </span>
           </a>
         </div>
 

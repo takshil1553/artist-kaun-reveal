@@ -15,7 +15,7 @@
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 40 80% 55%;
+    --primary: 16 100% 50%;
     --primary-foreground: 0 0% 4%;
 
     --secondary: 0 0% 12%;
@@ -24,7 +24,7 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 55%;
 
-    --accent: 40 80% 55%;
+    --accent: 16 100% 50%;
     --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,15 +32,15 @@
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 40 80% 55%;
+    --ring: 16 100% 50%;
 
     --radius: 0.5rem;
 
     --font-heading: 'Bebas Neue', sans-serif;
     --font-body: 'Inter', sans-serif;
 
-    --gold-glow: 0 0 40px hsl(40 80% 55% / 0.3);
-    --gradient-gold: linear-gradient(135deg, hsl(40, 80%, 55%), hsl(30, 90%, 45%));
+    --gold-glow: 0 0 40px hsl(16 100% 50% / 0.3);
+    --gradient-gold: linear-gradient(135deg, hsl(16, 100%, 50%), hsl(16, 100%, 35%));
   }
 }
 
@@ -95,7 +95,7 @@
 
 @keyframes pulse-glow {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; text-shadow: 0 0 60px hsl(40 80% 55% / 0.5); }
+  50% { opacity: 0.7; text-shadow: 0 0 60px hsl(0 100% 50% / 0.5); }
 }
 
 @keyframes float {
@@ -119,7 +119,7 @@
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, hsl(0 0% 95%) 0%, hsl(40 80% 55%) 50%, hsl(0 0% 95%) 100%);
+  background: linear-gradient(90deg, hsl(0 0% 95%) 0%, hsl(0 100% 50%) 50%, hsl(0 0% 95%) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

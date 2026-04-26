@@ -39,7 +39,7 @@ const FAQSection = () => {
           <button
             onClick={() => setTab("influencer")}
             className={`flex-1 py-3 font-heading text-sm text-spaced uppercase transition-all duration-300 ${
-              tab === "influencer" ? "bg-primary text-primary-foreground" : "text-white/50 hover:text-white"
+              tab === "influencer" ? "bg-primary text-white" : "bg-black text-white/50 hover:bg-primary hover:text-white"
             }`}
           >
             🎥 Influencer
@@ -47,7 +47,7 @@ const FAQSection = () => {
           <button
             onClick={() => setTab("music")}
             className={`flex-1 py-3 font-heading text-sm text-spaced uppercase transition-all duration-300 ${
-              tab === "music" ? "bg-primary text-primary-foreground" : "text-white/50 hover:text-white"
+              tab === "music" ? "bg-primary text-white" : "bg-black text-white/50 hover:bg-primary hover:text-white"
             }`}
           >
             🎶 Music Lover

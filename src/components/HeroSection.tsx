@@ -44,7 +44,6 @@ export default function HeroSection() {
   const [revealed, setRevealed] = useState(false);
   const [lineW, setLineW] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   const artistText = useGlitch("#ARTIST", revealed);
   const kaunText = useGlitch("KAUN?", revealed);
@@ -58,12 +57,6 @@ export default function HeroSection() {
     const t1 = setTimeout(() => setRevealed(true), 600);
     const t2 = setTimeout(() => setLineW(100), 1200);
     return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.play().catch(() => {});
   }, []);
 
   // Particle canvas
@@ -88,7 +81,7 @@ export default function HeroSection() {
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200,160,60,${p.o})`;
+        ctx.fillStyle = `rgba(255,69,0,${p.o})`;
         ctx.fill();
         p.y += p.vy;
         p.x += p.vx;
@@ -103,17 +96,14 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
 
-      {/* BG Video */}
+      {/* BG Image */}
       <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          src="/teaser.mp4"
+        <img
+          src="/01-banner.jpg"
+          // src="/AK1.jpg"
           className="w-full h-full object-cover object-center"
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{ filter: "brightness(0.45) contrast(1.3) saturate(0.6)" }}
+          style={{ filter: "brightness(0.65) contrast(1.1) saturate(0.7)" }}
+          alt=""
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
@@ -134,8 +124,8 @@ export default function HeroSection() {
       {/* Top — Orave label — inside video */}
       <div className="absolute top-8 w-full text-center z-10">
         <p className="text-white text-xs md:text-sm tracking-[0.5em] uppercase font-body animate-text-reveal"
-          style={{ animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards", textShadow: "0 0 20px hsl(40 80% 55% / 0.8)" }}>
-          <span className="text-primary">Orave Studios</span> <span className="text-white/60">Presents</span>
+          style={{ animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards", textShadow: "0 0 20px rgba(255,0,0,0.8)" }}>
+          {/* <span className="text-primary">Orave Studios</span> <span className="text-white/60">Presents</span> */}
         </p>
       </div>
 
@@ -145,15 +135,14 @@ export default function HeroSection() {
         <h1 className="font-heading leading-[0.88] tracking-tight select-none">
           <span
             className="block text-[clamp(5.5rem,24vw,15rem)] text-white"
-            style={{ textShadow: "0 0 120px rgba(0,0,0,1)" }}
           >
             {artistText}
           </span>
           <span
             className="block text-[clamp(5.5rem,24vw,15rem)] text-primary"
-            style={{ textShadow: "0 0 80px hsl(40 80% 55% / 0.5), 0 0 160px hsl(40 80% 55% / 0.2)" }}
+            style={{ textShadow: "0 0 80px rgba(255,69,0,0.5), 0 0 160px rgba(255,69,0,0.2)" }}
           >
-            {kaunText}
+            {kaunText.slice(0, -1)}<span className="text-white">?</span>
           </span>
         </h1>
       </div>
@@ -187,7 +176,7 @@ export default function HeroSection() {
                 {i > 0 && <span className="font-heading text-2xl md:text-4xl text-primary/40 mb-3">:</span>}
                 <div className="flex flex-col items-center">
                   <span className="font-heading text-4xl md:text-6xl text-white tabular-nums"
-                    style={{ textShadow: "0 0 30px hsl(40 80% 55% / 0.3)" }}>
+                    style={{ textShadow: "0 0 30px rgba(255,69,0,0.3)" }}>
                     {Pad(val)}
                   </span>
                   <span className="text-white/25 text-[8px] tracking-[0.3em] uppercase font-body mt-1">
@@ -198,10 +187,7 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
-
       </div>
-
-
 
     </section>
   );

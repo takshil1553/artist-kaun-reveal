@@ -13,7 +13,7 @@ const InvitePage = () => {
       <div className="relative py-20 px-6 text-center border-b border-border overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/")}
           className="absolute top-6 left-6 flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors duration-300 text-spaced uppercase"
         >
           ← Back
